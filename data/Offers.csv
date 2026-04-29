@@ -1,0 +1,41 @@
+partner_id,partner_name,short_description,logo_url,brand_color_hex,cashback_percent,financial_segment
+1,ЧистоБыстро,Клининговый сервис,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#2E86DE,7,HIGH
+2,МастерМинутка,Бытовой ремонт,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#E74C3C,10,LOW
+3,Свет&Тепло,Электрика и сантехника,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#F39C12,8,LOW
+4,Городская Прачка,Прачечная и химчистка,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#3498DB,6,HIGH
+5,Доктор Окон,Мытье окон,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#1ABC9C,9,MEDIUM
+6,Переезд Легко,Грузчики и переезды,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#9B59B6,12,LOW
+7,Зооняня+,Уход за питомцами,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#16A085,11,LOW
+8,FixMobile,Ремонт смартфонов,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#34495E,5,LOW
+9,Домовой Сервис,Мелкий домашний ремонт,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#D35400,8,HIGH
+10,Шеф на Час,Выездной повар,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#C0392B,13,LOW
+11,АвтоСпа 24,Детейлинг авто,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#2C3E50,9,HIGH
+12,Няня Рядом,Услуги няни,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#E91E63,14,HIGH
+13,ТехноДок,Ремонт техники,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#7F8C8D,7,HIGH
+14,ФлораДом,Уход за растениями,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#27AE60,6,LOW
+15,Курьер Про,Курьерская доставка,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#8E44AD,4,HIGH
+16,Бьюти Визит,Салон на дому,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#FF6B81,15,MEDIUM
+17,ТурбоУборка,Экспресс уборка,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#00B894,10,LOW
+18,Репетитор Онлайн,Частные уроки,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#6C5CE7,5,LOW
+19,ФотоМомент,Фотосъемка мероприятий,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#FD79A8,8,LOW
+20,Садовый Патруль,Уход за садом,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#55EFC4,11,LOW
+21,АкваЧек,Проверка воды,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#FF6B6B,4,LOW
+22,Юрист Рядом,Юридические консультации,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#4ECDC4,6,MEDIUM
+23,Мой Балкон,Ремонт балконов,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#45B7D1,8,HIGH
+24,Час Психолога,Психолог онлайн,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#F7B731,10,MEDIUM
+25,Веломастер,Ремонт велосипедов,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#5F27CD,12,LOW
+26,Кот и Пёс Care,Груминг питомцев,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#10AC84,5,HIGH
+27,Теплый Пол+,Монтаж отопления,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#FF9F43,7,MEDIUM
+28,Налог Эксперт,Налоговый консалтинг,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#2E86DE,9,HIGH
+29,Смарт Няня,Услуги няни,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#EE5253,11,LOW
+30,Праздник Просто,Организация праздников,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#341F97,13,MEDIUM
+31,ОкноПрофи,Установка окон,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#01A3A4,3,HIGH
+32,Бизнес Ассист,Виртуальный ассистент,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#222F3E,14,LOW
+33,Дом Дез,Дезинфекция помещений,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#C8D6E5,15,MEDIUM
+34,МувЛайт,Легкие переезды,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#576574,6,HIGH
+35,Бьюти Кабинет,Косметология на дому,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#FF6348,8,LOW
+36,Тут Репетитор,Частные уроки,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#2ED573,10,MEDIUM
+37,ЭкоХимчистка,Химчистка мебели,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#1E90FF,5,HIGH
+38,Сити Курьер+,Городская доставка,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#A55EEA,7,LOW
+39,ФинСовет,Финансовые консультации,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#20BF6B,12,MEDIUM
+40,Мастер Ключ,Изготовление ключей,https://img.freepik.com/premium-vector/vector-design-brand-image-icon-style_822882-236021.jpg?semt=ais_rp_progressive&w=740&q=80,#FD9644,9,HIGH

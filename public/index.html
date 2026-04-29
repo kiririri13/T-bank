@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Т-Банк · Лояльность</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- Стартовый экран: выбор клиента без логина и пароля. -->
+    <section id="loginView" class="login-view">
+      <div class="login-brand">
+        <div class="brand-mark">Т</div>
+        <span>Т-Банк</span>
+      </div>
+      <div class="login-card profile-card">
+        <div>
+          <p class="eyebrow dark">Выбор клиента</p>
+          <h1>Откройте личную выгоду</h1>
+          <p class="login-copy">Выберите пользователя из списка, чтобы сразу перейти в его персональный раздел лояльности.</p>
+        </div>
+
+        <label class="profile-search">
+          Найти клиента
+          <input id="profileSearch" type="search" placeholder="Имя или id" autocomplete="off" />
+        </label>
+
+        <div id="profileList" class="profile-list" aria-live="polite"></div>
+        <p id="profileError" class="form-error" hidden></p>
+      </div>
+      <div class="login-visual" aria-hidden="true">
+        <div class="tbank-crest">
+          <span>Т</span>
+          <b>Банк</b>
+        </div>
+        <div class="visual-card top">
+          <span id="visualUsers">0</span>
+          <small>клиентов на выбор</small>
+        </div>
+        <div class="visual-card middle">
+          <span id="visualPrograms">0</span>
+          <small>программы лояльности</small>
+        </div>
+        <div class="visual-card bottom">
+          <span id="visualOffers">0 партнеров</span>
+          <small>в едином разделе</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Основной личный раздел выбранного пользователя. -->
+    <section id="appView" class="app-view" hidden>
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-mark">Т</div>
+          <div>
+            <p class="eyebrow">Единый раздел</p>
+            <h2>Лояльность</h2>
+          </div>
+        </div>
+        <div class="account-bar">
+          <div>
+            <strong id="userName">Пользователь</strong>
+            <span id="userMeta">Аккаунт</span>
+          </div>
+          <button id="themeToggle" class="icon-button" type="button" title="Переключить тему" aria-label="Переключить тему">◐</button>
+          <button id="logoutButton" class="ghost-button" type="button">Выбрать другого</button>
+        </div>
+      </header>
+
+      <main>
+        <section id="status" class="status">Собираем ваш личный раздел...</section>
+
+        <section class="dashboard" hidden>
+          <!-- Верхний баннер с общей выгодой и прогрессом достижений. -->
+          <div class="hero">
+            <div class="hero-content">
+              <p id="profileLabel" class="eyebrow dark">Ваш профиль</p>
+              <h1 id="heroTitle">0 бонусов</h1>
+              <p id="heroText">Вся выгода от Т-Банка собрана в одном месте.</p>
+            </div>
+            <div class="hero-meter">
+              <div class="hero-meter-core">
+                <span id="heroProgress">0%</span>
+              </div>
+              <div id="heroProgressMeta" class="hero-progress-meta">Выполнено 0 из 0 достижений</div>
+            </div>
+          </div>
+
+          <!-- Счета раскрываются по кнопке "Подробнее". -->
+          <section class="panel accounts-panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Главная</p>
+                <h3>Все ваши аккаунты</h3>
+              </div>
+              <span class="hint">Переход к деталям через кнопку «Подробнее»</span>
+            </div>
+            <div id="accounts" class="accounts"></div>
+            <div id="accountDetail" class="account-detail" hidden></div>
+          </section>
+
+          <section class="metrics" id="metrics"></section>
+
+          <section class="content-grid">
+            <!-- Интерактивная аналитика выплат по месяцам. -->
+            <article class="panel wide analytics-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Аналитика</p>
+                  <h3>История выплат</h3>
+                </div>
+                <span class="hint">Нажмите на месяц</span>
+              </div>
+              <div id="analyticsSummary" class="analytics-summary"></div>
+              <div id="chart" class="chart" aria-label="График выплат по месяцам"></div>
+              <div id="monthDetails" class="month-details"></div>
+            </article>
+
+            <!-- Прогноз строится на последних месяцах выплат. -->
+            <article class="panel black-panel forecast-panel">
+              <p class="eyebrow dark">Прогноз</p>
+              <h3>Следующие 3 месяца</h3>
+              <div class="forecast">
+                <strong id="forecastTotal">0</strong>
+                <span>ожидаемых бонусных единиц</span>
+              </div>
+              <p id="forecastText"></p>
+              <div class="forecast-ai">
+                <p class="eyebrow dark">ИИ</p>
+                <h3 id="aiTitle">Помощник выгоды</h3>
+                <p id="aiText"></p>
+                <div id="aiActions" class="chips"></div>
+              </div>
+            </article>
+
+            <!-- Достижения показывают средний прогресс по заданным максимумам. -->
+            <article class="panel achievements-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Достижения</p>
+                  <h3>Ваш прогресс</h3>
+                </div>
+                <strong id="achievementsCount" class="badge"></strong>
+              </div>
+              <div class="achievement-progress"><span id="achievementProgress"></span></div>
+              <div id="achievements" class="achievements"></div>
+            </article>
+
+            <!-- Партнеры отображают доступные предложения из CSV. -->
+            <article id="offersPanel" class="panel partners-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Партнеры</p>
+                  <h3>Акции именно для вас</h3>
+                </div>
+                <button id="toggleOffers" class="ghost-button" type="button">Показать все</button>
+              </div>
+              <div id="offers" class="offers"></div>
+            </article>
+
+            <!-- Экосистема показывает три подробные карточки продуктов. -->
+            <article class="panel wide ecosystem-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Экосистема</p>
+                  <h3>Рекомендованные продукты</h3>
+                </div>
+              </div>
+              <div id="products" class="products"></div>
+            </article>
+          </section>
+        </section>
+      </main>
+    </section>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

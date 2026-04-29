@@ -1,0 +1,17 @@
+{
+  "name": "tbank-loyalty-hub",
+  "version": "1.0.0",
+  "description": "Веб-приложение и backend для единого раздела лояльности Т-Банка по данным РадиоХак.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests.js"
+  },
+  "keywords": [
+    "loyalty",
+    "tbank",
+    "hackathon"
+  ],
+  "author": "",
+  "license": "MIT"
+}

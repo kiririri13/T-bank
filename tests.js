@@ -5,19 +5,44 @@ const assert = require("assert");
 const { app, authenticate, buildDashboard, listUsers, runSelfTest } = require("./server");
 
 // HTTP-хелперы проверяют API без запуска внешнего браузера.
-function request(server, requestPath) {
+function request(server, requestPath, headers = {}) {
   const { port } = server.address();
   return new Promise((resolve, reject) => {
     http
-      .get({ hostname: "127.0.0.1", port, path: requestPath }, (res) => {
+      .get({ hostname: "127.0.0.1", port, path: requestPath, headers }, (res) => {
         let body = "";
         res.setEncoding("utf8");
         res.on("data", (chunk) => {
           body += chunk;
         });
-        res.on("end", () => resolve({ status: res.statusCode, body }));
+        res.on("end", () => resolve({ status: res.statusCode, body, headers: res.headers }));
       })
       .on("error", reject);
+  });
+}
+
+function options(server, requestPath, headers = {}) {
+  const { port } = server.address();
+  return new Promise((resolve, reject) => {
+    const req = http.request(
+      {
+        hostname: "127.0.0.1",
+        port,
+        path: requestPath,
+        method: "OPTIONS",
+        headers,
+      },
+      (res) => {
+        let body = "";
+        res.setEncoding("utf8");
+        res.on("data", (chunk) => {
+          body += chunk;
+        });
+        res.on("end", () => resolve({ status: res.statusCode, body, headers: res.headers }));
+      }
+    );
+    req.on("error", reject);
+    req.end();
   });
 }
 
@@ -128,6 +153,16 @@ test("4. Health API и список пользователей", async () => {
     assert.strictEqual(health.status, 200, "health endpoint failed");
     const parsedHealth = JSON.parse(health.body);
     assert(parsedHealth.csvFiles && Object.keys(parsedHealth.csvFiles).length === 5, "health должен ссылаться на 5 исходных CSV");
+
+    const corsHealth = await request(server, "/api/health", { Origin: "https://example.pages.dev" });
+    assert.strictEqual(corsHealth.headers["access-control-allow-origin"], "*", "API должен разрешать Cloudflare Pages origin");
+
+    const preflight = await options(server, "/api/login", {
+      Origin: "https://example.pages.dev",
+      "Access-Control-Request-Method": "POST",
+    });
+    assert.strictEqual(preflight.status, 204, "OPTIONS preflight должен проходить для API");
+    assert(preflight.headers["access-control-allow-methods"].includes("POST"), "preflight должен разрешать POST");
 
     const apiUsers = await request(server, "/api/users");
     assert.strictEqual(apiUsers.status, 200, "список пользователей не отдан");

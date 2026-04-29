@@ -78,6 +78,15 @@ function friendlyError(error, fallback = "Произошла непредвид�
   return error instanceof Error && error.message ? error.message : fallback;
 }
 
+const apiBaseUrl = String(window.APP_CONFIG?.API_BASE_URL || "").replace(/\/+$/, "");
+
+function apiUrl(path) {
+  if (/^https?:\/\//i.test(path)) {
+    return path;
+  }
+  return `${apiBaseUrl}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 function handleUnexpectedError(error) {
   console.error(error);
   const message = friendlyError(error);
@@ -92,7 +101,7 @@ function handleUnexpectedError(error) {
 async function api(path, options = {}) {
   let response;
   try {
-    response = await fetch(path, {
+    response = await fetch(apiUrl(path), {
       headers: { "Content-Type": "application/json", ...(options.headers || {}) },
       ...options,
     });

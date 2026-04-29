@@ -8,6 +8,11 @@ const ROOT = __dirname;
 const DATA_DIR = path.join(ROOT, "data");
 const PUBLIC_DIR = path.join(ROOT, "public");
 const PORT = Number(process.env.PORT || 3000);
+const HOST = process.env.HOST || "0.0.0.0";
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "*")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 // Исходные таблицы кейса: приложение намеренно работает только с этими CSV.
 const CSV_FILES = {
@@ -576,6 +581,30 @@ function json(res, status, payload) {
   res.end(body);
 }
 
+function allowCors(req, res) {
+  const origin = req.headers.origin || "";
+  const wildcard = ALLOWED_ORIGINS.includes("*");
+  const allowedOrigin = wildcard ? "*" : ALLOWED_ORIGINS.find((item) => item === origin);
+
+  if (allowedOrigin) {
+    res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+  }
+  res.setHeader("Vary", "Origin");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Max-Age", "86400");
+}
+
+function handlePreflight(req, res, pathname) {
+  if (req.method !== "OPTIONS" || !pathname.startsWith("/api/")) {
+    return false;
+  }
+  allowCors(req, res);
+  res.writeHead(204);
+  res.end();
+  return true;
+}
+
 function serveStatic(res, requestPath) {
   const safePath = requestPath === "/" ? "/index.html" : requestPath;
   const filePath = path.normalize(path.join(PUBLIC_DIR, safePath));
@@ -607,6 +636,12 @@ function sendServerError(res, error) {
 // Минимальный HTTP-роутер для API и статического фронтенда.
 async function handleRequest(req, res) {
   const parsed = url.parse(req.url, true);
+  if (handlePreflight(req, res, parsed.pathname)) {
+    return;
+  }
+  if (parsed.pathname.startsWith("/api/")) {
+    allowCors(req, res);
+  }
   if (parsed.pathname === "/api/health") {
     json(res, 200, {
       ok: true,
@@ -669,9 +704,10 @@ async function app(req, res) {
   }
 }
 
-function start(port = PORT) {
-  return http.createServer(app).listen(port, () => {
-    console.log(`T-Bank Loyalty Hub: http://localhost:${port}`);
+function start(port = PORT, host = HOST) {
+  return http.createServer(app).listen(port, host, () => {
+    const displayHost = host === "0.0.0.0" ? "localhost" : host;
+    console.log(`T-Bank Loyalty Hub: http://${displayHost}:${port}`);
   });
 }
 

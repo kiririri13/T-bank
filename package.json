@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "Веб-приложение и backend для единого раздела лояльности Т-Банка по данным РадиоХак.",
   "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "build": "npm run build:pages",
+    "build:pages": "node scripts/generate-config.js",
+    "prestart": "node scripts/generate-config.js",
     "start": "node server.js",
     "test": "node tests.js"
   },

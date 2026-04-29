@@ -41,6 +41,35 @@ node server.js
 start-server.cmd
 ```
 
+## Деплой
+
+Проект развернут на двух сервисах:
+
+- Frontend на Cloudflare Pages: [https://tbank-loyalty-hub.pages.dev/](https://tbank-loyalty-hub.pages.dev/)
+- Backend/API на Render: [https://tbank-loyalty-hub-api.onrender.com](https://tbank-loyalty-hub-api.onrender.com)
+- Health check API: [https://tbank-loyalty-hub-api.onrender.com/api/health](https://tbank-loyalty-hub-api.onrender.com/api/health)
+
+Frontend берет адрес backend из `API_BASE_URL`. Для Cloudflare Pages значение должно быть:
+
+```text
+API_BASE_URL=https://tbank-loyalty-hub-api.onrender.com
+```
+
+Для Render backend:
+
+```text
+Build Command: npm ci
+Start Command: npm start
+Health Check Path: /api/health
+```
+
+Для Cloudflare Pages frontend:
+
+```text
+Build command: npm run build:pages
+Build output directory: public
+```
+
 ## Тесты
 
 ```bash

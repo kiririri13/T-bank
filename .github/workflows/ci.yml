@@ -55,8 +55,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate deployment secrets
+        run: |
+          missing=0
+          for name in API_BASE_URL CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is not set in GitHub Actions secrets"
+              missing=1
+            fi
+          done
+          exit "$missing"
+
       - name: Generate frontend config
         run: npm run build:pages
 
       - name: Deploy static frontend
-        run: npx wrangler pages deploy public --project-name="${CLOUDFLARE_PAGES_PROJECT_NAME:-tbank-loyalty-hub}"
+        run: npx --yes wrangler@4 pages deploy public --project-name="${CLOUDFLARE_PAGES_PROJECT_NAME:-tbank-loyalty-hub}"

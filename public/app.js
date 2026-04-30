@@ -89,6 +89,12 @@ function apiUrl(path) {
 
 function handleUnexpectedError(error) {
   console.error(error);
+  // Если дашборд уже успешно загружен, фоновая ошибка (например, баг Safari при Share) 
+  // не должна "убивать" интерфейс.
+  if (!el.dashboard.hidden) {
+    console.warn("Фоновая ошибка проигнорирована:", error);
+    return;
+  }
   const message = friendlyError(error);
   if (el.appView.hidden) {
     showProfileSelection(message);

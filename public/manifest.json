@@ -1,6 +1,6 @@
 {
   "name": "Т-Банк Лояльность",
-  "short_name": "Лояльность",
+  "short_name": "Т-Банк Лояльность",
   "description": "Единый раздел лояльности Т-Банк",
   "start_url": "/",
   "display": "standalone",

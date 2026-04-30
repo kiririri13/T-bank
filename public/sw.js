@@ -9,9 +9,7 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // Простая стратегия, чтобы PWA считалось валидным (network-first/pass-through)
-  // Мы не кэшируем жестко, чтобы не сломать динамику
-  event.respondWith(
-    fetch(event.request).catch(() => new Response('Offline'))
-  );
+  // Пустой обработчик fetch нужен только для того, чтобы PWA считалось валидным для установки.
+  // Мы не перехватываем запросы (не используем event.respondWith), 
+  // чтобы браузер (особенно iOS Safari) обрабатывал их стандартно и не выдавал непредвиденных ошибок при шеринге.
 });

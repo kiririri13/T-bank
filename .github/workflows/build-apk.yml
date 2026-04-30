@@ -46,6 +46,7 @@ jobs:
 
     - name: Set App Icons
       run: |
+        sudo apt-get install -y imagemagick
         SRC="public/icon-512.png"
         MIPMAP="android/app/src/main/res"
         declare -A SIZES=(

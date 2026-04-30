@@ -35,6 +35,10 @@ jobs:
     - name: Sync Capacitor
       run: npx cap sync android
 
+    - name: Fix Kotlin Duplicate Classes
+      run: |
+        echo "allprojects { configurations.all { exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'; exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8' } }" >> android/build.gradle
+
     - name: Build APK
       working-directory: ./android
       run: ./gradlew assembleDebug

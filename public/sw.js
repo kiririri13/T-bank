@@ -1,4 +1,4 @@
-const CACHE_NAME = 't-bank-loyalty-v1';
+const CACHE_NAME = 't-bank-loyalty-hub-v1';
 
 self.addEventListener('install', event => {
   self.skipWaiting(); // Сразу активируем

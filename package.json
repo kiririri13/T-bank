@@ -1,5 +1,5 @@
 {
-  "name": "tbank-loyalty-hub",
+  "name": "t-bank-loyalty-hub",
   "version": "1.0.0",
   "description": "Веб-приложение и backend для единого раздела лояльности Т-Банка по данным РадиоХак.",
   "main": "server.js",
@@ -19,5 +19,10 @@
     "hackathon"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/android": "^8.3.1",
+    "@capacitor/cli": "^7.6.2",
+    "@capacitor/core": "^8.3.1"
+  }
 }
